@@ -1,0 +1,185 @@
+@import '../../../../styles/variables.scss';
+
+.card {
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 14px;
+    width: 320px;
+    height: 480px;
+    display: grid;
+    grid-template-areas: "triangle rectangle"
+        "square  square";
+    grid-template-rows: 43px 1fr;
+    grid-template-columns: 43px 1fr;
+
+    &__triangle {
+        grid-area: triangle;
+        border-bottom: 43px solid $color-card;
+        border-left: 43px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    &__rectangle {
+        grid-area: rectangle;
+        background-color: $color-card;
+        border-radius: 0 12px 0 0;
+        border-top: 4px solid $blue-light;
+        border-right: 4px solid $blue-light;
+        transition: all 0.3s ease;
+    }
+
+    &__square {
+        position: relative;
+        overflow: hidden;
+        grid-area: square;
+        background-color: $color-card;
+        border-radius: 0 0 12px 12px;
+        border-bottom: 4px solid $blue-light;
+        border-left: 4px solid $blue-light;
+        border-right: 4px solid $blue-light;
+        transition: all 0.3s ease;
+    }
+
+    &__border {
+        position: absolute;
+        width: 61px;
+        height: 4px;
+        background-color: $blue-light;
+        top: 43px;
+        transform: rotate(-45deg) translate(10px, -21px);
+        transition: all 0.3s ease;
+    }
+
+    &__img {
+        position: absolute;
+        bottom: -88px;
+        left: -24px;
+    }
+
+    &_hovered {
+        .card__rectangle {
+            border-color: $blue-light-hover;
+        }
+
+        .card__square {
+            border-color: $blue-light-hover;
+        }
+
+        .card__border {
+            background-color: $blue-light-hover;
+        } 
+    }
+
+    &_selected {
+        .card__rectangle {
+            border-color: $pink;
+        }
+
+        .card__square {
+            border-color: $pink;
+        }
+
+        .card__border {
+            background-color: $pink;
+        }
+    }
+
+    &_fully {
+        .card__rectangle {
+            border-color: $pink-hover;
+        }
+
+        .card__square {
+            border-color: $pink-hover;
+        }
+
+        .card__border {
+            background-color: $pink-hover;
+        }
+    }
+
+    &_disabled {
+        cursor: not-allowed;
+        .card__rectangle {
+            border-color: $disabled;
+        }
+
+        .card__square {
+            border-color: $disabled;
+        }
+
+        .card__border {
+            background-color: $disabled;
+        }
+        .card__img {
+            opacity: 0.6;
+        }
+    }
+}
+
+.weight {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 80px;
+    height: 80px;
+    background: $blue-light;
+    border-radius: 50px;
+    z-index: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: all 0.3s ease;
+
+    &__value {
+        font-size: 42px;
+        line-height: 22px;
+        margin-bottom: 8px;
+    }
+
+    &__dimension {
+        font-size: 21px;
+        line-height: 22px;
+    }
+
+    &_hovered {
+        background: $blue-light-hover;
+    }
+
+    &_selected {
+        background: $pink;
+    }
+
+    &_full {
+        background: $pink-hover;
+    }
+
+    &_disabled {
+        background: $disabled;
+    }
+}
+
+.buy {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+    color: white;
+    text-align: center;
+
+    &__action {
+        cursor: pointer;
+        color: $blue-light;
+        text-decoration: underline dashed $blue-light;
+        transition: all 0.3s ease;
+        &_hovered {
+            color: $blue-light-hover;
+            text-decoration: underline dashed $blue-light-hover;
+        }
+    }
+
+    &_disabled {
+        color: $yellow-diabled;
+    }
+}

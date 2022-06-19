@@ -1,5 +1,6 @@
 import React from "react";
+import { FeedComponent } from "./components";
 
 export const App = () => {
-  return <div>Hello React JS!</div>;
+  return <FeedComponent />
 };
