@@ -4,5 +4,19 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 0 80px;
+
+        @media (max-width: 1120px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 80px;
+        }
+
+        @media (max-width: 425px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 80px 0;
+        }
     }
 }

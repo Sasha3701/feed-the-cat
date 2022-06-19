@@ -1,0 +1,13 @@
+@mixin change-color($color) {
+    .card__rectangle {
+        border-color: $color;
+    }
+
+    .card__square {
+        border-color: $color;
+    }
+
+    .card__border {
+        background-color: $color;
+    }
+}

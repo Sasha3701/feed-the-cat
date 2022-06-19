@@ -1,4 +1,5 @@
 @import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
 
 .card {
     cursor: pointer;
@@ -11,6 +12,46 @@
         "square  square";
     grid-template-rows: 43px 1fr;
     grid-template-columns: 43px 1fr;
+
+    &__content {
+        position: absolute;
+        top: 21px;
+        left: 51px;
+    }
+
+    &__manufacturer {
+        color: $grey;
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 5px;
+        transition: all 0.3s ease;
+        &_hovered {
+            color: $pink-hover;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 55px;
+    }
+
+    &__subtitle {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 27px;
+        margin-bottom: 15px;
+    }
+
+    &__values {
+        list-style: none;
+        color: $grey;
+        line-height: 16px;
+    }
+
+    &__count {
+        font-weight: 700;
+    }
 
     &__triangle {
         grid-area: triangle;
@@ -57,63 +98,23 @@
     }
 
     &_hovered {
-        .card__rectangle {
-            border-color: $blue-light-hover;
-        }
-
-        .card__square {
-            border-color: $blue-light-hover;
-        }
-
-        .card__border {
-            background-color: $blue-light-hover;
-        } 
+        @include change-color($blue-light-hover);
     }
 
     &_selected {
-        .card__rectangle {
-            border-color: $pink;
-        }
-
-        .card__square {
-            border-color: $pink;
-        }
-
-        .card__border {
-            background-color: $pink;
-        }
+        @include change-color($pink);
     }
 
     &_fully {
-        .card__rectangle {
-            border-color: $pink-hover;
-        }
-
-        .card__square {
-            border-color: $pink-hover;
-        }
-
-        .card__border {
-            background-color: $pink-hover;
-        }
+        @include change-color($pink-hover);
     }
 
     &_disabled {
         cursor: not-allowed;
-        .card__rectangle {
-            border-color: $disabled;
-        }
-
-        .card__square {
-            border-color: $disabled;
-        }
-
-        .card__border {
-            background-color: $disabled;
-        }
         .card__img {
             opacity: 0.6;
         }
+        @include change-color($disabled);
     }
 }
 

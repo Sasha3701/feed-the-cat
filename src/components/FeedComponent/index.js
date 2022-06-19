@@ -8,7 +8,10 @@ const cards = [
     title: "Нямушка",
     subtitle1: "Сказочное заморское яство",
     subtitle2: "с фуа-гра",
-    description: "10 порций мышь в подарок",
+    values: [
+      { id: 0, name: "порций", count: 10 },
+      { id: 1, name: "мышь в подарок", count: null },
+    ],
     weigth: 0.5,
     text_selected: "Печень утки разварная с артишоками.",
     disabled: false,
@@ -18,7 +21,10 @@ const cards = [
     title: "Нямушка",
     subtitle1: "Сказочное заморское яство",
     subtitle2: "с рыбой",
-    description: "40 порций 2 мыши в подарок",
+    values: [
+      { id: 0, name: "порций", count: 40 },
+      { id: 1, name: "мышь в подарок", count: 2 },
+    ],
     weigth: 2,
     text_selected: "Головы щучьи с чесноком да свежайшая сёмгушка.",
     disabled: false,
@@ -28,7 +34,11 @@ const cards = [
     title: "Нямушка",
     subtitle1: "Сказочное заморское яство",
     subtitle2: "с курой",
-    description: "100 порций 5 мышей в подарок заказчик доволен",
+    values: [
+      { id: 0, name: "порций", count: 100 },
+      { id: 1, name: "мышь в подарок", count: 5 },
+      { id: 2, name: "заказчик доволен", count: null },
+    ],
     weigth: 5,
     text_selected: "Филе из цыплят с трюфелями в бульоне.",
     disabled: true,
@@ -41,10 +51,10 @@ export const FeedComponent = () => {
   const handleSelected = (id) => {
     if (arrSelected.includes(id)) {
       setArrSelected((prevState) => {
-        return prevState.filter((cardId) => cardId !== id)
-    });
+        return prevState.filter((cardId) => cardId !== id);
+      });
     } else {
-      setArrSelected((prevState) => ([...prevState, id]) );
+      setArrSelected((prevState) => [...prevState, id]);
     }
   };
 

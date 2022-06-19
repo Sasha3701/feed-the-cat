@@ -6,7 +6,16 @@ import "./styles/index.scss";
 
 export const Card = ({ card, isSelected, onSelected }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { weigth, id, disabled, text_selected, subtitle2 } = card;
+  const {
+    weigth,
+    id,
+    disabled,
+    text_selected,
+    subtitle2,
+    subtitle1,
+    title,
+    values,
+  } = card;
 
   const handleClick = () => {
     onSelected(id);
@@ -40,6 +49,25 @@ export const Card = ({ card, isSelected, onSelected }) => {
           <img className="card__img" src={catIcon} alt="cat-funbox" />
         </div>
         <div className="card__border" />
+        <div className="card__content">
+          <p
+            className={classNames("card__manufacturer", {
+              card__manufacturer_hovered: isHovered && isSelected,
+            })}
+          >
+            {isHovered && isSelected ? "Котэ не одобряет?" : subtitle1}
+          </p>
+          <h2 className="card__title">{title}</h2>
+          <p className="card__subtitle">{subtitle2}</p>
+          <ul className="card__values">
+            {values.map(({ id, count, name }) => (
+              <li key={id}>
+                {count ? <span className="card__count">{count} </span> : null}
+                {name}
+              </li>
+            ))}
+          </ul>
+        </div>
         <div
           className={classNames("weight", {
             weight_selected: isSelected,
